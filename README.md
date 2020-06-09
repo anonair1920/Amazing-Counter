@@ -1,3 +1,19 @@
+## Required Features 🎯
+
+* [x] User sees a count of 0 when the app starts.
+* [x] User sees three buttons, increment, decrement and reset.
+* [x] User can click the increment button and see the count go up by one.
+* [x] User can click the decrement button and see the count go down by one.
+* [x] User can click the reset button to set the count back to zero.
+* [x] User can see an input which they can type into.
+* [ ] User can enter a color into the input and see the box change to the color typed.
+
+## Rockets 🚀
+* [ ] User can see the number of colorful boxes matches the count from the Redux store.
+* [ ] Do not allow number to go below 0.
+* [ ] If number is above 10, change color of text.
+* [ ] Add a textbox, that takes a number. Increment/Decrement by that number.
+* [ ] User can change each box individually.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

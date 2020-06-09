@@ -1,24 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { useSelector, useDispatch } from "react-redux";
 
 function App() {
+  let count = useSelector((state) => state.count);
+  let dispatch = useDispatch();
+
+  const increaseNum = () => {
+    dispatch({ type: "increment" }); //dispatch send action, and action is object
+  };
+
+  const changeColor = (color) => {
+    dispatch({ type: "changeColor", payload: color });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div
+      className="App-header amazingBox"
+    >
+      <h1>Amazing Counter</h1>
+      <h2>{count}</h2>
+      <div className="buttons">
+        <button
+          onClick={() => {
+            increaseNum();
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          {" "}
+          +{" "}
+        </button>{" "}
+        <button
+          onClick={() => {
+            dispatch({
+              type: "decrement",
+              payload: { num: 2, message: "an is awesome" },
+            });
+          }}
+        >
+          {" "}
+          -{" "}
+        </button>
+      </div>
+      <div>
+        <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="Type a color"
+          onChange={(e) => changeColor(e.target.value)}
+        />
+      </div>
     </div>
   );
 }
