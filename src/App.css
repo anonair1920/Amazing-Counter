@@ -19,7 +19,9 @@
 }
 .littleBox{
   border: 1px solid white;
-  color: black
+  color: black;
+  margin-top: 15px;
+  padding-top: 15px;
 }
 .App-header {
   background-color: #282c34;
