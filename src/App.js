@@ -8,15 +8,15 @@ function App() {
   let dispatch = useDispatch();
 
   const increaseNum = () => {
-    dispatch({ type: "increment" }); //dispatch send action, and action is object
+    dispatch({ type: "increment" }); //dispatch send action which is object
   };
 
   const changeColor = (color) => {
     dispatch({ type: "changeColor", payload: color });
   };
 
-  const renderBox = () => {
-    return state.boxes.map((item) => <Children />);
+  const renderBox = (item) => {
+    return state.boxes.map((item, idx) => <Children id={idx}/>);
   };
 
   return (

@@ -22,6 +22,9 @@ function reducer(state = initialState, action) {
     state.count = 0;
   } else if (action.type === "changeColor") {
     state.backgroundColor = action.payload;
+  } else if (action.type === "singleColor") {
+    state.boxes[action.payload.id] = action.payload.value;
+    console.log("after sigle color", state.boxes);
   }
   return { ...state }; // take everything inside the initialState and make it somethign
 }
