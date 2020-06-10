@@ -7,14 +7,17 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 const initialState = {
   count: 0,
-  backgroundColor: "",
+  backgroundColor: "white",
+  boxes: [],
 };
 
 function reducer(state = initialState, action) {
   if (action.type === "increment") {
     state.count++;
+    state.boxes.unshift("");
   } else if (action.type === "decrement") {
     state.count--;
+    state.boxes.pop("");
   } else if (action.type === "reset") {
     state.count = 0;
   } else if (action.type === "changeColor") {

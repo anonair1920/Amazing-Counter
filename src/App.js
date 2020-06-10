@@ -1,9 +1,10 @@
 import React from "react";
 import "./App.css";
+import Children from "./components/Children";
 import { useSelector, useDispatch } from "react-redux";
 
 function App() {
-  let count = useSelector((state) => state.count);
+  let state = useSelector((state) => state);
   let dispatch = useDispatch();
 
   const increaseNum = () => {
@@ -14,12 +15,14 @@ function App() {
     dispatch({ type: "changeColor", payload: color });
   };
 
+  const renderBox = () => {
+    return state.boxes.map((item) => <Children />);
+  };
+
   return (
-    <div
-      className="App-header amazingBox"
-    >
+    <div className="App-header amazingBox">
       <h1>Amazing Counter</h1>
-      <h2>{count}</h2>
+      <h2>{state.count}</h2>
       <div className="buttons">
         <button
           onClick={() => {
@@ -48,8 +51,9 @@ function App() {
         <input
           type="text"
           placeholder="Type a color"
-          onChange={(e) => changeColor(e.target.value)}
+          onChange={(e) => dispatch({type: "changeColor", payload: e.target.value})}
         />
+        {renderBox()}
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 export default function Children() {
-  let count = useSelector((state) => state.count);
+  let state = useSelector((state) => state);
   return (
-    <div>
-      <h3>This is Children</h3>
-      <h5>{count}</h5>
+    <div className='littleBox' style={{backgroundColor: state.backgroundColor}}>
+      <h3>This is box</h3>
+      <input placeholder='insert color'/>
     </div>
   );
 }
